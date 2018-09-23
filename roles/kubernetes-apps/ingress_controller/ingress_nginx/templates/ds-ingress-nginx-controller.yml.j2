@@ -28,6 +28,9 @@ spec:
 {% if ingress_nginx_nodeselector %}
       nodeSelector:
         {{ ingress_nginx_nodeselector | to_nice_yaml }}
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
 {%- endif %}
       containers:
         - name: ingress-nginx-controller
