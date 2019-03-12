@@ -39,7 +39,7 @@ flavor_k8s_node = "2"
 #flavor_gfs_node = "<UUID>"
 
 # networking
-network_name = "zonca_k8s_network"
+network_name = "MODIFY_THIS_TO_UNIQUE_VALUE"
 # IU
 # external_net = "4367cd20-722f-4dc2-97e8-90d98c25f12e"
 # TACC
