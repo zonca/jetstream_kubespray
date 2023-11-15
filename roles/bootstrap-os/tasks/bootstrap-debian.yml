@@ -28,6 +28,22 @@
   when:
     - need_nfs.rc != 0
 
+- name: Check if rsync is installed
+  raw: which rsync
+  register: need_rsync
+  failed_when: false
+  changed_when: false
+  check_mode: false
+  tags:
+    - facts
+
+- name: Install rsync
+  raw:
+    apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y rsync
+  become: true
+  when: need_rsync.rc != 0
+
 - name: Check http::proxy in apt configuration files
   raw: apt-config dump | grep -qsi 'Acquire::http::proxy'
   register: need_http_proxy
