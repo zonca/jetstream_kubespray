@@ -1,4 +1,4 @@
-for i in $(seq 2 9)
+for i in $(seq 2 10)
 do
     NODE="$CLUSTER-k8s-node-$i"
     #kubectl cordon $NODE
