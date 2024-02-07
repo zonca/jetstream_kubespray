@@ -1,6 +1,9 @@
 for i in $(seq 2 10)
 do
-    NODE="$CLUSTER-k8s-node-$i"
+    # with floating IP
+    # NODE="$CLUSTER-k8s-node-$i"
+    # without floating IP
+    NODE="$CLUSTER-k8s-node-nf-$i"
     #kubectl cordon $NODE
     #kubectl drain --ignore-daemonsets --delete-emptydir-data $NODE
     #openstack server shelve $NODE
