@@ -277,7 +277,8 @@ kubeconfig_localhost: true
 
 ## Supplementary addresses that can be added in kubernetes ssl keys.
 ## That can be useful for example to setup a keepalived virtual IP
-supplementary_addresses_in_ssl_keys: [149.xxx.xxx.xxx]
+# AZ: not necessary, we are passing the IP env variable in the k8s_*.sh scripts
+# supplementary_addresses_in_ssl_keys: [149.xxx.xxx.xxx]
 
 ## Running on top of openstack vms with cinder enabled may lead to unschedulable pods due to NoVolumeZoneConflict restriction in kube-scheduler.
 ## See https://github.com/kubernetes-sigs/kubespray/issues/2141

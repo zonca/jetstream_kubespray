@@ -1,3 +1,4 @@
+set -o nounset # fail if a variable is not defined
 for i in $(seq 2 10)
 do
     # with floating IP
