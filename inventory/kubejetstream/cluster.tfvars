@@ -6,6 +6,11 @@ image = "Featured-Ubuntu22"
 # (optional) use a different image for master
 # image_master = "Featured-Ubuntu22"
 
+# alternatively, use uuid instead of image name, this works also with
+# community and shared images.
+# image_uuid = "dfa2c90b-2082-425d-ad9f-b49f652b996b"
+# image_master_uuid = "dfa2c90b-2082-425d-ad9f-b49f652b996b"
+
 # user on the node (ex. core on Container Linux, ubuntu on Ubuntu, etc.)
 ssh_user = "ubuntu"
 
