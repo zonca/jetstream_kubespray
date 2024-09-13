@@ -2,6 +2,7 @@
 public_key_path = "~/.ssh/id_rsa.pub"
 
 # image to use for bastion, masters, standalone etcd instances, and nodes
+# Kubespray 2.21 does not support Ubuntu 24
 image = "Featured-Ubuntu22"
 # (optional) use a different image for master
 # image_master = "Featured-Ubuntu22"
