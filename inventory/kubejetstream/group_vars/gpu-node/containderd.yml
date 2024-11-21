@@ -15,6 +15,7 @@ containerd_runc_runtime:
   root: ""
   options:
     BinaryName : '"/usr/bin/nvidia-container-runtime"'
+    systemdCgroup: 'true'
 
 
 # containerd_additional_runtimes:
