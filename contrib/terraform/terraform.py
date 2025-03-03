@@ -117,7 +117,7 @@ def iterips(resources):
     '''yield ip tuples of (port_id, ip)'''
     for module_name, key, resource in resources:
         resource_type, name = key.split('.', 1)
-        if resource_type == 'openstack_networking_floatingip_associate_v2':
+        if resource_type == 'openstack_compute_floatingip_associate_v2':
             yield openstack_floating_ips(resource)
 
 
@@ -243,13 +243,13 @@ def openstack_floating_ips(resource):
     raw_attrs = resource['primary']['attributes']
     attrs = {
         'ip': raw_attrs['floating_ip'],
-        'port_id': raw_attrs['port_id'],
+        'instance_id': raw_attrs['instance_id'],
     }
     return attrs
 
 def openstack_floating_ips(resource):
     raw_attrs = resource['primary']['attributes']
-    return raw_attrs['port_id'], raw_attrs['floating_ip']
+    return raw_attrs['instance_id'], raw_attrs['floating_ip']
 
 @parses('openstack_compute_instance_v2')
 @calculate_mantl_vars
@@ -340,7 +340,7 @@ def openstack_host(resource, module_name):
 def iter_host_ips(hosts, ips):
     '''Update hosts that have an entry in the floating IP list'''
     for host in hosts:
-        port_id = host[1]['port_id']
+        port_id = host[1]['id']
 
         if port_id in ips:
             ip = ips[port_id]

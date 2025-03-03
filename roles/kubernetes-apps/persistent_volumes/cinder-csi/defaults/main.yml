@@ -1,7 +1,7 @@
 ---
 storage_classes:
   - name: cinder-csi
-    is_default: false
+    is_default: true
     parameters:
       availability: nova
       allowVolumeExpansion: false

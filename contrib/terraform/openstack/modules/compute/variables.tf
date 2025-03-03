@@ -228,7 +228,3 @@ variable "port_security_enabled" {
 variable "force_null_port_security" {
   type = bool
 }
-
-variable "private_subnet_id" {
-  type = string
-}

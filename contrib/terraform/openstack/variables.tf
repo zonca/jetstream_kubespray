@@ -172,6 +172,11 @@ variable "subnet_cidr" {
   default     = "10.0.0.0/24"
 }
 
+variable "subnetpool_id" {
+  description = "Subnetpool ID block."
+  type        = string
+}
+
 variable "dns_nameservers" {
   description = "An array of DNS name server names used by hosts in this subnet."
   type        = list(string)

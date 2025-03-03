@@ -27,7 +27,6 @@ module "ips" {
   k8s_masters                   = var.k8s_masters
   k8s_master_fips               = var.k8s_master_fips
   bastion_fips                  = var.bastion_fips
-  router_internal_port_id       = module.network.router_internal_port_id
 }
 
 module "compute" {
@@ -97,16 +96,8 @@ module "compute" {
   network_router_id                            = module.network.router_id
   network_id                                   = module.network.network_id
   use_existing_network                         = var.use_existing_network
-  private_subnet_id                            = module.network.subnet_id
   additional_server_groups                     = var.additional_server_groups
 
-  depends_on = [
-    module.network.subnet_id
-  ]
-}
-
-output "private_subnet_id" {
-  value = module.network.subnet_id
 }
 
 output "floating_network_id" {

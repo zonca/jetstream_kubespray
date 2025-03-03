@@ -11,6 +11,23 @@
   tags:
     - facts
 
+- name: Check if nfs-common is needed
+  raw: which mount.nfs
+  register: need_nfs
+  failed_when: false
+  changed_when: false
+  # This command should always run, even in check mode
+  check_mode: false
+  tags:
+    - facts
+- name: Install nfs-common
+  raw:
+    apt-get update && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y nfs-common
+  become: true
+  when:
+    - need_nfs.rc != 0
+
 - name: Check http::proxy in apt configuration files
   raw: apt-config dump | grep -qsi 'Acquire::http::proxy'
   register: need_http_proxy
